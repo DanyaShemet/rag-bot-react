@@ -4,21 +4,21 @@ import { setLogoutHandler } from './lib/navigation'
 import App from './App'
 
 function AppWrapperInner() {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    useEffect(() => {
-        setLogoutHandler(() => {
-            navigate('/login')
-        })
-    }, [navigate])
+  useEffect(() => {
+    setLogoutHandler(() => {
+      navigate('/login')
+    })
+  }, [navigate])
 
-    return <App />
+  return <App />
 }
 
 export default function AppWrapper() {
-    return (
-        <BrowserRouter>
-            <AppWrapperInner />
-        </BrowserRouter>
-    )
+  return (
+    <BrowserRouter>
+      <AppWrapperInner />
+    </BrowserRouter>
+  )
 }

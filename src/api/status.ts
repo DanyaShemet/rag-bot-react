@@ -1,6 +1,7 @@
 import { api } from './index.js'
+import { Status } from '@/models/response/status'
 
-export function getStatus() {
+export function getStatus(): Promise<Status> {
   return api.get(`/api/status`).then((r) => r.data)
 }
 

@@ -1,10 +1,11 @@
-import { api } from './index.ts'
+import { api } from '@/api/index'
+import { Login } from '@/models/request/login'
 
-export async function login({ email, password }) {
+export async function login({ email, password }: Login) {
   return api.post('/auth/login/', { email, password }).then((r) => r.data)
 }
 
-export function register({ email, password }) {
+export function register({ email, password }: Login) {
   return api.post('/auth/register/', { email, password }).then((r) => r.data)
 }
 

@@ -4,39 +4,40 @@ import Bot from './pages/Bot'
 import Documents from './pages/Documents'
 import Profile from './pages/Profile'
 import Register from './pages/Register'
-import ProtectedRoute from './components/ProtectedRoute.tsx'
+import ProtectedRoute from './components/ProtectedRoute'
+import React from 'react'
 
 export default function App() {
-    return (
-        <Routes>
-            <Route
-                path="/"
-                element={
-                    <ProtectedRoute>
-                        <Bot />
-                    </ProtectedRoute>
-                }
-            />
-            <Route
-                path="/documents"
-                element={
-                    <ProtectedRoute>
-                        <Documents />
-                    </ProtectedRoute>
-                }
-            />
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Bot />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/documents"
+        element={
+          <ProtectedRoute>
+            <Documents />
+          </ProtectedRoute>
+        }
+      />
 
-            <Route
-                path="/profile"
-                element={
-                    <ProtectedRoute>
-                        <Profile />
-                    </ProtectedRoute>
-                }
-            />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
 
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-        </Routes>
-    )
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+  )
 }

@@ -1,6 +1,5 @@
 import { api } from './index.js'
 
-
 export interface ChatResponse {
   reply: string
 }

@@ -1,4 +1,4 @@
-import { api } from './index.ts'
+import { api } from '@/api/index'
 export interface DocumentItem {
   _id: string
   fileName: string
@@ -12,4 +12,3 @@ export const getDocuments = (): Promise<DocumentItem[]> => {
 export const deleteDocument = (id: string) => {
   return api.delete(`/documents/${id}`).then((res) => res.data)
 }
-
