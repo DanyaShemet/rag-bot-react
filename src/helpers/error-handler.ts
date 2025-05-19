@@ -7,6 +7,8 @@ export const getErrorMessage = (err: unknown): string => {
   if (err instanceof AxiosError) {
     return err.response?.data?.message || err.message
   }
+
+  console.log(err)
   if (err instanceof Error) {
     return err.message
   }
