@@ -4,6 +4,7 @@ import { toast } from 'sonner'
 import AppHeader from '@/components/ui/AppHeader'
 import { getErrorMessage, withDefaultErrorHandler } from '@/helpers/error-handler'
 import { useEffect } from 'react'
+import PdfUploader from '@/components/PdfUploader'
 
 export default function Documents() {
   const queryClient = useQueryClient()
@@ -18,6 +19,7 @@ export default function Documents() {
     onSuccess: () => {
       toast.success('Документ видалено')
       queryClient.invalidateQueries({ queryKey: ['documents'] })
+      queryClient.invalidateQueries({ queryKey: ['status'] })
     },
     onError: withDefaultErrorHandler(),
   })
@@ -31,7 +33,9 @@ export default function Documents() {
   return (
     <>
       <AppHeader />
+
       <main className="p-4 max-w-3xl mx-auto space-y-4">
+        <PdfUploader />
         <h1 className="text-2xl font-bold">📚 Ваші документи</h1>
 
         {isLoading && <p>⏳ Завантаження...</p>}

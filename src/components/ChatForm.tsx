@@ -2,8 +2,8 @@ import { FormEvent, useEffect, useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { askChat } from '@/api/chat'
 import { getErrorMessage, withDefaultErrorHandler } from '@/helpers/error-handler'
-
-export default function ChatForm() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function ChatForm({ chatId }: { chatId: string | undefined }) {
   const [question, setQuestion] = useState('')
   const [errorMessage, setErrorMessage] = useState<string>('')
 

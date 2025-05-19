@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { uploadPdf } from '@/api/upload'
 import { getStatus, resetSession } from '@/api/status'
 import { toast } from 'sonner'
 import { getErrorMessage } from '@/helpers/error-handler'
 
 export default function PdfUploader() {
+  const queryClient = useQueryClient()
   const [file, setFile] = useState<File | null>(null)
   const [errorMessage, setErrorMessage] = useState<string>('')
   const {
@@ -29,6 +30,7 @@ export default function PdfUploader() {
     mutationFn: uploadPdf,
     onSuccess: (res) => {
       toast.success(res.message || 'PDF завантажено')
+      queryClient.invalidateQueries({ queryKey: ['documents'] })
       refetchStatus()
     },
     onError: (err) => {
