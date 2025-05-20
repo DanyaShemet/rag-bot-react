@@ -6,7 +6,7 @@ export default function AppHeader() {
   const location = useLocation()
 
   const links = [
-    { to: '/', label: '🧠 Бот' },
+    { to: '/', label: '🧠 Чати' },
     { to: '/documents', label: '📚 Документи' },
     { to: '/profile', label: '👤 Профіль' },
   ]
