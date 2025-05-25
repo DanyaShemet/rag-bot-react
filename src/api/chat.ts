@@ -16,8 +16,8 @@ export interface Chats {
   data: ChatItem[]
 }
 
-export async function askChat(question: string): Promise<ChatResponse> {
-  return await api.post('/chat', { question }).then((r) => r.data)
+export async function askChat(params: { question: string; chatId: string }): Promise<ChatResponse> {
+  return await api.post('/chat', params).then((r) => r.data)
 }
 
 export async function createChat() {
